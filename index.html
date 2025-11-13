@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido a Pelizone</title>
     <style>
-        /* Fondo animado con colores vivos */
+        /* Fondo con colores vivos y suaves */
         body {
-            background: linear-gradient(135deg, #3a0ca3, #7209b7, #f72585, #4361ee, #4cc9f0);
-            background-size: 500% 500%;
-            animation: fondoAnimado 8s ease infinite;
+            background: linear-gradient(135deg, #5B2C6F, #2874A6, #D35400);
             font-family: 'Poppins', sans-serif;
             color: #fff;
             text-align: center;
@@ -21,39 +19,22 @@
             align-items: center;
         }
 
-        @keyframes fondoAnimado {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         /* Contenedor principal */
         .container {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 25px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-            padding: 40px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            padding: 35px 25px;
             max-width: 600px;
             width: 90%;
-            backdrop-filter: blur(10px);
-            animation: aparecer 1.5s ease;
-        }
-
-        @keyframes aparecer {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            backdrop-filter: blur(8px);
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2.3em;
             margin-bottom: 15px;
-            text-shadow: 0 0 15px #fff, 0 0 25px #f72585;
-            animation: brillarTexto 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes brillarTexto {
-            0% { text-shadow: 0 0 10px #fff, 0 0 20px #7209b7; }
-            100% { text-shadow: 0 0 20px #fff, 0 0 30px #4cc9f0; }
+            color: #FFD700; /* Amarillo cálido */
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
         }
 
         p {
@@ -62,96 +43,74 @@
             line-height: 1.5em;
         }
 
-        /* Botones animados */
+        /* Botones */
         button {
             border: none;
             color: white;
             padding: 14px 30px;
             font-size: 1.1em;
-            border-radius: 15px;
+            border-radius: 12px;
             cursor: pointer;
-            margin: 15px 10px 0 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            margin: 12px 8px 0 8px;
         }
 
-        /* Botón de plataformas */
         .btn-principal {
-            background: linear-gradient(90deg, #ff006e, #fb5607);
-            animation: brillarBoton 2s infinite alternate;
+            background-color: #E74C3C; /* Rojo vivo */
         }
 
         .btn-principal:hover {
-            transform: scale(1.08);
-            filter: brightness(1.2);
+            background-color: #C0392B;
+            transform: scale(1.05);
         }
 
-        /* Botón de WhatsApp */
         .btn-whatsapp {
-            background: linear-gradient(90deg, #06d6a0, #118ab2);
-            animation: brillarBoton 2s infinite alternate-reverse;
+            background-color: #1ABC9C; /* Verde vivo */
         }
 
         .btn-whatsapp:hover {
-            transform: scale(1.08);
-            filter: brightness(1.2);
+            background-color: #16A085;
+            transform: scale(1.05);
         }
 
-        @keyframes brillarBoton {
-            0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
-            100% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.8); }
-        }
-
-        /* Texto de seguridad flotante */
+        /* Cuadro de seguridad */
         .seguridad {
-            margin-top: 30px;
+            margin-top: 25px;
             font-size: 0.95em;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 18px;
-            border-radius: 15px;
+            color: #f1f1f1;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 15px;
+            border-radius: 12px;
             line-height: 1.6em;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-            animation: flotar 3s ease-in-out infinite;
-        }
-
-        @keyframes flotar {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
         }
 
         .seguridad strong {
-            color: #4cc9f0;
+            color: #00FFA3;
         }
 
-        .seguridad::before {
-            content: "🔒";
-            font-size: 1.5em;
-            display: block;
-            margin-bottom: 8px;
-            animation: candado 2s ease-in-out infinite;
-        }
-
-        @keyframes candado {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(12deg); }
-        }
-
-        /* Pie */
+        /* Pie de página */
         footer {
             margin-top: 40px;
             font-size: 0.9em;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
-        /* Modo móvil */
+        /* Versión móvil */
         @media (max-width: 600px) {
-            h1 { font-size: 2em; }
-            p { font-size: 1em; }
+            h1 {
+                font-size: 1.9em;
+            }
+            p {
+                font-size: 1em;
+            }
             button {
                 width: 100%;
+                padding: 12px;
                 margin: 10px 0;
             }
-            .container { padding: 30px 20px; }
+            .container {
+                padding: 30px 18px;
+            }
         }
     </style>
 </head>
@@ -161,16 +120,17 @@
         <p><strong>Horario de atención:</strong> 1:00 p.m. a 8:00 p.m.</p>
         <p>Puedes dejar tu solicitud en cualquier momento. 💬</p>
         <p>Ofrecemos servicios <strong>personalizados</strong> con un equipo comprometido contigo. 🚀</p>
-        <br>
+
         <button class="btn-principal" onclick="window.location.href='https://an3114.github.io/pelizone-maketin.github.io/'">
             🎟️ Ver plataformas y combos
         </button>
+
         <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/573206034019?text=Hola,%20quiero%20hablar%20con%20un%20vendedor%20de%20Pelizone'">
             💬 Charlar directamente con vendedor
         </button>
 
         <div class="seguridad">
-            <strong>Tu seguridad es primero</strong><br>
+            🔒 <strong>Tu seguridad es primero:</strong><br>
             Ninguno de nuestros vendedores te pedirá datos personales.<br>
             Estás <strong>seguro con nosotros</strong>.
         </div>
