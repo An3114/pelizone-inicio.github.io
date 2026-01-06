@@ -3,141 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a Pelizone</title>
+    <title>Bienvenido a PeliZone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Fondo con colores vivos y suaves */
-        body {
-            background: linear-gradient(135deg, #5B2C6F, #2874A6, #D35400);
-            font-family: 'Poppins', sans-serif;
-            color: #fff;
-            text-align: center;
-            padding: 60px 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        :root {
+            --bg-color: #0a0a0a; /* Fondo muy oscuro */
+            --card-bg: #161616;  /* Fondo de la tarjeta */
+            --accent: #e50914;   /* Rojo PeliZone */
+            --tv-color: #4a69bd; /* Azul para TV */
+            --whatsapp: #25D366; /* Verde WP */
+            --text: #ffffff;
+            --gray: #b3b3b3;
         }
 
-        /* Contenedor principal */
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, #331010 0%, #0a0a0a 70%);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Contenedor Central */
         .container {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            border: 1px solid #333;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            padding: 35px 25px;
-            max-width: 600px;
-            width: 90%;
-            backdrop-filter: blur(8px);
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto de borde superior brillante */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--tv-color));
         }
 
         h1 {
-            font-size: 2.3em;
-            margin-bottom: 15px;
-            color: #FFD700; /* Amarillo cálido */
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
         }
 
-        p {
-            font-size: 1.1em;
-            margin: 10px 0;
-            line-height: 1.5em;
+        h1 span { color: var(--accent); }
+
+        .status {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--gray);
+            margin-bottom: 25px;
+            border: 1px solid #333;
         }
 
-        /* Botones */
+        .dot {
+            height: 10px; width: 10px;
+            background-color: #4cd137;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            box-shadow: 0 0 10px #4cd137;
+        }
+
+        p.description {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* BOTONES */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
         button {
             border: none;
             color: white;
-            padding: 14px 30px;
+            padding: 18px;
             font-size: 1.1em;
+            font-weight: 600;
             border-radius: 12px;
             cursor: pointer;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-            margin: 12px 8px 0 8px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .btn-principal {
-            background-color: #E74C3C; /* Rojo vivo */
+        /* Botón Streaming (Rojo) */
+        .btn-streaming {
+            background: linear-gradient(145deg, #e50914, #b20710);
         }
+        .btn-streaming:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3); }
 
-        .btn-principal:hover {
-            background-color: #C0392B;
-            transform: scale(1.05);
+        /* Botón TV (Azul/Violeta) */
+        .btn-tv {
+            background: linear-gradient(145deg, #4a69bd, #1e3799);
         }
+        .btn-tv:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(74, 105, 189, 0.3); }
 
+        /* Botón WhatsApp (Verde) */
         .btn-whatsapp {
-            background-color: #1ABC9C; /* Verde vivo */
+            background: transparent;
+            border: 2px solid #333;
+            color: var(--whatsapp);
         }
-
         .btn-whatsapp:hover {
-            background-color: #16A085;
-            transform: scale(1.05);
+            border-color: var(--whatsapp);
+            background: rgba(37, 211, 102, 0.1);
         }
 
-        /* Cuadro de seguridad */
-        .seguridad {
-            margin-top: 25px;
-            font-size: 0.95em;
-            color: #f1f1f1;
-            background: rgba(0, 0, 0, 0.35);
-            padding: 15px;
-            border-radius: 12px;
-            line-height: 1.6em;
+        /* Seguridad y Footer */
+        .footer-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            font-size: 0.8em;
+            color: #666;
         }
 
-        .seguridad strong {
-            color: #00FFA3;
+        .security-badge {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            color: #888;
+            margin-bottom: 10px;
         }
 
-        /* Pie de página */
-        footer {
-            margin-top: 40px;
-            font-size: 0.9em;
-            opacity: 0.85;
-        }
-
-        /* Versión móvil */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.9em;
-            }
-            p {
-                font-size: 1em;
-            }
-            button {
-                width: 100%;
-                padding: 12px;
-                margin: 10px 0;
-            }
-            .container {
-                padding: 30px 18px;
-            }
-        }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>🎬 Bienvenido a <strong>Pelizone</strong></h1>
-        <p><strong>Horario de atención:</strong> 1:00 p.m. a 8:00 p.m.</p>
-        <p>Puedes dejar tu solicitud en cualquier momento. 💬</p>
-        <p>Ofrecemos servicios <strong>personalizados</strong> con un equipo comprometido contigo. 🚀</p>
+        <h1>Peli<span>Zone</span></h1>
+        
+        <div class="status">
+            <span class="dot"></span> Abierto: 10:00 AM - 8:00 PM
+        </div>
 
-        <button class="btn-principal" onclick="window.location.href='https://an3114.github.io/pelizone-maketin.github.io/'">
-            🎟️ Ver plataformas y combos
-        </button>
+        <p class="description">
+            El mejor entretenimiento digital en un solo lugar. <br>
+            <strong>¿Qué deseas ver hoy?</strong>
+        </p>
 
-        <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/573206034019?text=Hola,%20quiero%20hablar%20con%20un%20vendedor%20de%20Pelizone'">
-            💬 Charlar directamente con vendedor
-        </button>
+        <div class="btn-group">
+            
+            <button class="btn-streaming" onclick="window.location.href='https://an3114.github.io/pelizone-maketin.github.io/'">
+                🎬 Ver Cine & Series (Combos)
+            </button>
 
-        <div class="seguridad">
-            🔒 <strong>Tu seguridad es primero:</strong><br>
-            Ninguno de nuestros vendedores te pedirá datos personales.<br>
-            Estás <strong>seguro con nosotros</strong>.
+            <button class="btn-tv" onclick="window.location.href='TU_LINK_DE_CANALES_AQUI'">
+                📺 Plataforma de Canales en Vivo
+            </button>
+
+            <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/573206034019?text=Hola,%20vengo%20de%20la%20web%20y%20quiero%20hablar%20con%20un%20asesor'">
+                💬 Hablar con un Asesor diretamente 
+            </button>
+        </div>
+
+        <div class="footer-info">
+            <div class="security-badge">
+                🔒 <span>Compra 100% Segura y Garantizada</span>
+            </div>
+            <p>© 2025 PeliZone Inc.</p>
         </div>
     </div>
 
-    <footer>
-        © 2025 Pelizone. Todos los derechos reservados.
-    </footer>
 </body>
 </html>
